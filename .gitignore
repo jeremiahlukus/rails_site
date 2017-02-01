@@ -7,6 +7,9 @@
 # Ignore bundler config.
 #/.bundle
 
+# Ignore mysql data
+/db_data/*
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
