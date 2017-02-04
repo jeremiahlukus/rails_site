@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile.rails
     working_dir: /var/www/site
     # Removing server.pid first so Rails doesn't think there is another server running
-    command: /bin/bash -c "rm tmp/pids/server.pid && bundle exec rails s -p 3000"
+    command: /bin/bash -c "bash entrypoint.sh && bundle exec rails s -p 3000"
     volumes:
       - .:/var/www/site
     ports:
