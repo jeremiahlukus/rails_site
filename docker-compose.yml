@@ -1,0 +1,23 @@
+version: '2'
+services:
+  rails:
+    image: ph-rails
+    build:
+      context: .
+      dockerfile: ./Dockerfile.rails
+    working_dir: /var/www/site
+    # Removing server.pid first so Rails doesn't think there is another server running
+    command: /bin/bash -c "rm tmp/pids/server.pid && bundle exec rails s -p 3000"
+    volumes:
+      - .:/var/www/site
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7.17
+    volumes:
+      - ./db_data:/var/lib/mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=ph-dev
