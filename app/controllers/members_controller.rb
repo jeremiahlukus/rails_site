@@ -9,9 +9,9 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      redirect_to home_url, notice: 'Member was successfully created.'
+      redirect_to home_url, notice: "You've been successfully added."
     else
-      render :new
+      redirect_to home_url, error: "Your data couldn't be saved. Try again later."
     end
   end
 

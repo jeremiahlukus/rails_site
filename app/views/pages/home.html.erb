@@ -1,1 +1,154 @@
-<p><b>wow</b></p>
+		<style type="text/css">
+			@keyframes popup {
+				from {top:-21px;}
+				to {top:0px;}
+			}
+			.subscribe-form {
+				display:inline-flex;
+				flex-flow:column nowrap;
+				width:350px;
+			}
+			.subscribe-form label {
+				color:white;
+				font-size:18pt;
+				font-weight:normal;
+			}
+			.subscribe-form .subscribe-fields {
+				background:#eee;
+				display:inline-flex;
+				flex-flow:column nowrap;
+				padding:5px;
+				border-radius:5px;
+				z-index:1;
+			}
+			.subscribe-form .name-field {
+				border:none;
+				outline:none;
+				background:none;
+				padding:10px 5px;
+				margin:0 2.5%;
+			}
+			.subscribe-form hr {
+				margin:5px auto;
+				width:97%;
+				border-top:1px solid #bbb;
+				display:block;
+			}
+			.subscribe-form .email-field {
+				border:none;
+				outline:none;
+				background:none;
+				padding:10px 5px;
+				margin:0 2.5%;
+			}
+			.submit-button {
+				border:none;
+				outline:none;
+				border-radius:3px;
+				padding:7px 10px;
+				margin-top:5px;
+				background-color:#4c94dc;
+				color:white;
+				transition:.3s all ease-in-out;
+			}
+			.submit-button:hover {
+				background-color:#6cb4fc;
+			}
+			.button-x2 {
+				padding:12px 15px;
+				font-size: 2.5rem;
+			}
+			.subscribe-form .message {
+				display:inline-block;
+				position:relative;
+				margin-top:-5px;
+				padding-top:5px;
+				z-index:0;
+				border-radius:0 0 5px 5px;
+				animation: popup 0.3s cubic-bezier(.17,.67,.69,1.33) forwards;
+			}
+			.subscribe-form .message.success {
+				color:rgb(0,123,0);
+				background-color:rgba(100,233,100,0.8);
+			}
+			.subscribe-form .message.error {
+				color:rgb(180,26,0);
+				background-color:rgba(255,120,110,0.8);
+			}
+			.main-event {
+				margin-bottom:9%;
+			}
+		</style>
+		<% if is_home %>
+			<div class="overlay-group">
+				<div class="overlay-top"></div>
+		<% end %>
+
+		<%= content_tag :header, class: "top-page-header #{ 'home-page-header' if is_home }" do %>
+			<div class="overlay-group mobile-top-nav-area">
+			<div class="overlay-top"></div>
+			<div class="overlay-bottom mobile-top-nav">
+				<p class="close-button"><i class="fa fa-times"></i></p>
+
+				<% nav_menu_items.each do |item| %>
+          <p><%= link_to item[:title], item[:url] %><p>
+				<% end %>
+
+				<p class="text-small text-center">Stay in touch</p>
+				<p class="social-media">
+					<a href="https://www.facebook.com/PantherHackers"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/PantherHackers"><i class="fa fa-twitter"></i></a>
+					<a href="https://instagram.com/pantherhackers/"><i class="fa fa-instagram"></i></a>
+					<a href="mailto:hello@pantherhackers.com"><i class="fa fa-envelope-o"></i></a>
+				</p>
+			</div>
+		</div>
+			<div class="<%= "overlay-bottom" if is_home %> wrapper clearfix">
+				<div class="navigation-area">
+					<ul class="navigation">
+    				<% nav_menu_items.each do |item| %>
+  						<li><%= link_to item[:title], item[:url] %></li>
+    				<% end %>
+					</ul>
+				</div>
+
+        <%= link_to image_tag('logo-01.png'), home_url, class: 'logo' %>
+				<!-- <a class="logo-area" href="<?php echo get_home_url(); ?>"> <img src="<?php bloginfo('template_directory');?>/img/logo-01.png" class="logo"></a> -->
+
+				<div class="social-media-area">
+					<ul>
+						<li><a href="https://www.facebook.com/PantherHackers"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="https://twitter.com/PantherHackers"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="https://instagram.com/pantherhackers/"><i class="fa fa-instagram"></i></a></li>
+					<li><a href="mailto:hello@pantherhackers.com"><i class="fa fa-envelope-o"></i></a></li>
+					</ul>
+				</div>
+				<div class="mobile-hamburger-area">
+					<button class="btn"><i class="fa fa-bars"></i></button>
+				</div>
+
+				<% if is_home %>
+					<hgroup class="pitch-group" style="margin-top: 12%;">
+						<h1>PantherHackers</h1>
+						<h2 style="text-transform:capitalize;">Simple Solutions for Complex Problems</h2>
+					</hgroup>
+
+          <%= form_for(@member, class: 'subscribe-form') do |f| %>
+						<label>Sign up for news</label>
+						<div class="subscribe-fields">
+              <%= f.text_field :first_name, placeholder: 'Steve', class: 'name-field' %>
+              <%= f.text_field :last_name, placeholder: 'Jobs', class: 'name-field' %>
+              <%= f.email_field :email, placeholder: 'sjobs2@student.gsu.edu', class: 'email-field' %>
+              <%= f.submit 'Subscribe'.upcase %>
+						</div>
+            <%= content_tag :span, class: "message #{notice ? 'success' : 'error'}" do %>
+              <%= notice || error %>
+            <% end %> <!-- END OF CONTENT -->
+          <% end %> <!-- END OF FORM -->
+				<% end %> <!-- END OF IF STATEMENT -->
+			</div>
+
+      <% if is_home %>
+        </div>
+  		<% end %>
+		<% end %> <!-- END OF HEADER -->
