@@ -8,11 +8,20 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
 
-    if @member.save
-      redirect_to home_url, notice: "You've been successfully added."
+    message = { notice: "You've been successfully added." }
+
+    if @member.email =~ /.+@(student\.)?gsu.edu/ && @member.save
+      begin
+        MailChimp.instance.subscribe(@member)
+      rescue Gibbon::MailChimpError
+        @member.destroy
+        message = { error: "Your data couldn't be saved. Try again later." }
+      end
     else
-      redirect_to home_url, error: "Your data couldn't be saved. Try again later."
+      message = { error: "Please use a @student.gsu.edu or @gsu.edu email" }
     end
+
+    redirect_to home_url, message
   end
 
   private
