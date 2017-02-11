@@ -8,6 +8,9 @@ services:
     working_dir: /var/www/site
     # Removing server.pid first so Rails doesn't think there is another server running
     command: /bin/bash -c "bash entrypoint.sh && bundle exec rails s -p 3000"
+    environment:
+      - MAILCHIMP_API_KEY
+      - MAILCHIMP_LIST_ID
     volumes:
       - .:/var/www/site
     ports:
