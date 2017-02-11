@@ -1,8 +1,4 @@
 module PagesHelper
-  def is_home
-    current_page?(home_url)
-  end
-
   def nav_menu_items
     [
       {title: 'About', url: home_url},
