@@ -3,8 +3,9 @@ FROM ruby:2.4.0
 # Installing NodeJS for some Ruby gems needed by Rails
 RUN apt-get update && apt-get install -y nodejs
 
-COPY . /var/www/site
+RUN mkdir /app
+WORKDIR /app
 
-WORKDIR /var/www/site
+ENV BUNDLE_PATH /app/box
 
-RUN bundle install
+ADD . /app

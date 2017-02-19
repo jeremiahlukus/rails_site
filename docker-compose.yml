@@ -5,14 +5,14 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile.rails
-    working_dir: /var/www/site
+    working_dir: /app
+    command: /bin/bash ./entrypoint.sh
     # Removing server.pid first so Rails doesn't think there is another server running
-    command: /bin/bash -c "bash entrypoint.sh && bundle exec rails s -p 3000"
     environment:
       - MAILCHIMP_API_KEY
       - MAILCHIMP_LIST_ID
     volumes:
-      - .:/var/www/site
+      - .:/app
     ports:
       - "3000:3000"
     depends_on:

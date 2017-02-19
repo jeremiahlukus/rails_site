@@ -10,6 +10,9 @@
 # Ignore mysql data
 /db_data/*
 
+# Ignore gems saved locally
+/box/*
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
