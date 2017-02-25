@@ -28,9 +28,6 @@ gem 'octokit'
 # Translating Markdown into HTML
 gem 'redcarpet'
 
-# HTTP requests
-gem 'unirest'
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -44,6 +41,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec'
   gem 'rspec-rails', '~> 3.5'
+  gem 'pry'
 end
 
 group :development do
