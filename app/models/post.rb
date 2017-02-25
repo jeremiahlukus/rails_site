@@ -23,12 +23,16 @@ class Post
   end
 
   def self.all
-    Octokit.contents(REPO, access_token: ENV['GITHUB_API_KEY']).reject { |f| IGNORED.include?(f.name) || f.type != 'file' }.map do |post_json|
-      Post.new(Octokit.contents(REPO, access_token: ENV['GITHUB_API_KEY'], path: "#{post_json.name}"))
+    Post.pull_gh_data.reject { |f| IGNORED.include?(f.name) || f.type != 'file' }.map do |post_json|
+      Post.new(Post.pull_gh_data("#{post_json.name}"))
     end
   end
 
   def self.find(name)
-    Post.new(Octokit.contents(REPO, access_token: ENV['GITHUB_API_KEY'], path: "#{name}.md"))
+    Post.new(Post.pull_gh_data("#{name}.md"))
+  end
+
+  def self.pull_gh_data(path=nil)
+    Octokit.contents(REPO, access_token: Rails.application.secrets.github_api_key, path: path)
   end
 end
