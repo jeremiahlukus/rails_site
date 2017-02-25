@@ -25,6 +25,9 @@ gem 'gibbon'
 # Github wrapper
 gem 'octokit'
 
+# Translating Markdown into HTML
+gem 'redcarpet'
+
 # HTTP requests
 gem 'unirest'
 
