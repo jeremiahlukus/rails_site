@@ -19,8 +19,11 @@ border:2px solid #999;border-radius:3px;
 background-color:#444;
 */
 
+$title-font: 'Montserrat';
+$text-font: 'Hind';
+
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat', sans-serif;
+	font-family: $title-font, sans-serif;
 }
 
 .hidden {
@@ -31,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 body{
 	color: #444;
 	font-size:15px;
-	font-family: 'Hind', sans-serif;
+	font-family: $text-font, sans-serif;
 }
 
 a{
@@ -299,7 +302,7 @@ img{
 
 .pitch-group h1{
 	font-size:3.5em;
-	font-family: 'Montserrat', sans-serif;
+	font-family: $title-font, sans-serif;
 	font-weight: 700;
 	text-shadow:0 0 5px #777;
 }
@@ -307,7 +310,7 @@ img{
 .pitch-group h2{
 	font-size:2em;
 	margin-top:50px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: $title-font, sans-serif;
 	text-shadow:0 0 5px #777;
 }
 
@@ -521,6 +524,7 @@ img{
 }
 
 .blog-post figcaption .title{
+	font-family: $title-font;
 	font-size:1.7em;
 	color:inherit;
 }

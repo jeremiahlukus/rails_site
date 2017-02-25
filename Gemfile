@@ -22,6 +22,12 @@ gem 'turbolinks', '~> 5'
 # MailChimp for saving members to mailing list
 gem 'gibbon'
 
+# Github wrapper
+gem 'octokit'
+
+# HTTP requests
+gem 'unirest'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
