@@ -3,4 +3,7 @@ class PagesController < ApplicationController
   def home
     @member = Member.new
   end
+
+  def about
+  end
 end
