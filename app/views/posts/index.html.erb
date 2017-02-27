@@ -74,7 +74,7 @@
       <%= content_tag(:h2, 'No posts yet. Check back later!') unless @posts %>
       <% for post in @posts %>
         <figure class="blog-post">
-          <%= link_to '', post.url, style: "background-image:#{post.thumbnail ? "url('#{post.thumbnail}')" : "url('assets/logo_thumbnail.png')"}" %>
+          <%= link_to '', post.url, style: "background-image:#{post_thumbnail(post)}" %>
           <%= link_to post.url do %>
             <figcaption>
               <%= content_tag :p, post.title, class: 'title' %>
