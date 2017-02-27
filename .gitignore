@@ -16,6 +16,9 @@
 # Ignore gems saved locally
 /box/*
 
+# Ignore precompiled assets
+/public/assets/*
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
