@@ -7,7 +7,7 @@ module ApplicationHelper
     [
       {title: 'About', url: about_url},
       {title: 'Events', url: home_url},
-      {title: 'Calendar', url: home_url},
+      {title: 'Calendar', url: calendar_url},
       {title: 'Blog', url: blog_url}
     ]
   end
