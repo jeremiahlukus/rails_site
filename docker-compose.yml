@@ -8,10 +8,7 @@ services:
     working_dir: /app
     command: /bin/bash ./entrypoint.sh
     # Removing server.pid first so Rails doesn't think there is another server running
-    environment:
-      - MAILCHIMP_API_KEY
-      - MAILCHIMP_LIST_ID
-      - GITHUB_API_KEY
+    env_file: .env
     volumes:
       - .:/app
     ports:
