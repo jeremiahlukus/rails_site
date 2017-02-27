@@ -8,4 +8,10 @@ WORKDIR /app
 
 ENV BUNDLE_PATH /app/box
 
-ADD . /app
+COPY . /app
+
+EXPOSE 80
+
+RUN bundle install
+
+CMD bundle exec rails s -b 0.0.0.0
