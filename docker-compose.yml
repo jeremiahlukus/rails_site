@@ -4,7 +4,7 @@ services:
     image: ph-rails
     build:
       context: .
-      dockerfile: ./Dockerfile.rails
+      dockerfile: ./Dockerfile
     working_dir: /app
     command: /bin/bash ./entrypoint.sh
     # Removing server.pid first so Rails doesn't think there is another server running
