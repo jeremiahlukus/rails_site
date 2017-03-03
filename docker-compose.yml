@@ -2,19 +2,22 @@ version: '2'
 services:
   rails:
     image: ph-rails
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    working_dir: /app
+    build: .
     command: /bin/bash ./entrypoint.sh
-    # Removing server.pid first so Rails doesn't think there is another server running
     env_file: .env
     volumes:
       - .:/app
     ports:
       - "3000:3000"
+    volumes_from:
+      - bundle
     depends_on:
       - db
+  bundle:
+    image: ph-rails
+    command: echo "I'm a little data container"
+    volumes:
+      - /bundle
   db:
     image: mysql:5.7.17
     volumes:

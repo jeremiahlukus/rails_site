@@ -13,9 +13,6 @@
 # Ignore mysql data
 /db_data/*
 
-# Ignore gems saved locally
-/box/*
-
 # Ignore precompiled assets
 /public/assets/*
 

@@ -3,12 +3,16 @@ FROM ruby:2.4.0
 # Installing NodeJS for some Ruby gems needed by Rails
 RUN apt-get update && apt-get install -y nodejs
 
-RUN mkdir /app
-WORKDIR /app
+ENV APP /app
 
-ENV BUNDLE_PATH /app/box
+RUN mkdir $APP
+WORKDIR $APP
 
-COPY . /app
+ENV BUNDLE_GEMFILE=$APP/Gemfile \
+    BUNDLE_JOBS=2 \
+    BUNDLE_PATH=/bundle
+
+COPY . $APP
 
 RUN bundle install
 RUN bundle exec rake assets:precompile
