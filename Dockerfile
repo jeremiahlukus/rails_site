@@ -14,8 +14,7 @@ ENV BUNDLE_GEMFILE=$APP/Gemfile \
 
 COPY . $APP
 
-RUN bundle install
-RUN bundle exec rake db:migrate
+RUN bundle install --without development test
 RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
