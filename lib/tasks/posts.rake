@@ -25,7 +25,7 @@ namespace :posts do
         post.date = DateTime.iso8601(config[:date]),
         post.tags = config[:tags].join(','),
         post.published = config[:published],
-        post.content = markdown.render(raw_content).html_safe
+        post.content = markdown.render(raw_content)
       end
     end
   end
