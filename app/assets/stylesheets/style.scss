@@ -76,11 +76,12 @@ img{
 }
 
 .logo-small{
+	margin: 10px 0;
 	max-width: 300px;
 }
 
 .home-page-header{
-	background-image: image-url("header2_img.jpg");
+	background-image: image-url("header_img.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -148,7 +149,7 @@ img{
 
 .top-page-header .logo-area{
 	width: 36%;
-	padding:8px 0;
+	padding:14px 0;
 }
 
 .top-page-header .logo{
