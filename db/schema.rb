@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303050759) do
+ActiveRecord::Schema.define(version: 20170304042220) do
 
   create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170303050759) do
     t.boolean  "published"
     t.text     "content",       limit: 65535
     t.datetime "date"
+    t.index ["name"], name: "index_posts_on_name", unique: true, using: :btree
   end
 
 end
