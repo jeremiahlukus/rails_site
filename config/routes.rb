@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   controller :posts do
     get '/blog' => :index, as: :blog
-    get '/blog/:id' => :show, as: :show
+    get '/blog/:name' => :show, as: :post
   end
 
   controller :pages do

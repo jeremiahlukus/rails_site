@@ -62,13 +62,13 @@
   <p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post</p>
 
   <% else %>
-  <%= content_tag :div, class: 'post-image-area overlay-group', style: "background: url('#{@post.thumbnail}');" do %>
+  <%= content_tag :div, class: 'post-image-area overlay-group', style: "background: url('#{@post.thumbnail_url}');" do %>
 
-  <%= content_tag :div, '', class: 'overlay-top', style: "background-color:rgba(0,0,0,#{@post.thumbnail ? 0.4 : 0.0});" %>
+  <%= content_tag :div, '', class: 'overlay-top', style: "background-color:rgba(0,0,0,#{@post.thumbnail_url ? 0.4 : 0.0});" %>
 
   <div class="post-info overlay-bottom">
-    <%= content_tag :h2, @post.title, class: 'title', style: "color: #{@post.thumbnail ? '#fff' : '#444'}" %>
-    <%= content_tag :p, "by #{@post.author}", class: 'author', style: "color: #{@post.thumbnail ? '#eee' : '#555'}" %>
+    <%= content_tag :h2, @post.title, class: 'title', style: "color: #{@post.thumbnail_url ? '#fff' : '#444'}" %>
+    <%= content_tag :p, "by #{@post.author}", class: 'author', style: "color: #{@post.thumbnail_url ? '#eee' : '#555'}" %>
     <%= content_tag :p, @post.date.strftime('%B %d, %Y'), class: 'text-muted' %>
   </div>
   <% end %>

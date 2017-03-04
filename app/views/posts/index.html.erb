@@ -74,17 +74,17 @@
       <%= content_tag(:h2, 'No posts yet. Check back later!') unless @posts %>
       <% for post in @posts %>
         <figure class="blog-post">
-          <%= link_to '', post.url, style: "background-image:#{post_thumbnail(post)}" %>
-          <%= link_to post.url do %>
+          <%= link_to '', post_url(post), style: "background-image:#{post_thumbnail(post)}" %>
+          <%= link_to post_url(post) do %>
             <figcaption>
               <%= content_tag :p, post.title, class: 'title' %>
               <%= content_tag :p, "by #{post.author}", class: 'author' %>
-              <%= content_tag :p, post.tags.map{ |tag| tag.capitalize }.join(', '), class: 'category' %>
+              <%= content_tag :p, post.tags.split(',').map{ |tag| tag.capitalize }.join(', '), class: 'category' %>
               <%= content_tag :p, '', class: 'excerpt' %>
               <%= content_tag :p, "#{time_ago_in_words(post.date)} ago", class: 'text-muted text-small' %>
             </figcaption>
             <p>
-              <%= link_to 'Read More', post.url, class: 'btn' %>
+              <%= link_to 'Read More', post_url(post), class: 'btn' %>
             </p>
           <% end %>
         </figure>
