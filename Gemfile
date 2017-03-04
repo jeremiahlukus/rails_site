@@ -20,16 +20,16 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
 # MailChimp for saving members to mailing list
-gem 'gibbon'
+gem 'gibbon', '~> 3.0.1'
 
 # Github wrapper
-gem 'octokit'
+gem 'octokit', '~> 4.6.2'
 
 # Translating Markdown into HTML
-gem 'redcarpet'
+gem 'redcarpet', '~> 3.4.0'
 
 # Cronjobs
-gem 'whenever'
+gem 'whenever', '~> 0.9.7'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
