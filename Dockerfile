@@ -1,7 +1,7 @@
 FROM ruby:2.4.0
 
 # Installing NodeJS for some Ruby gems needed by Rails
-RUN apt-get update && apt-get install -y nodejs
+RUN apt-get update && apt-get install -y nodejs cron
 
 ENV APP /app
 
@@ -16,6 +16,9 @@ COPY . $APP
 
 RUN bundle install --without development test
 RUN bundle exec rake assets:precompile
+
+# Whenever turns schedule.rb into a crontab
+RUN bundle exec whenever --update-crontab
 
 EXPOSE 3000
 
