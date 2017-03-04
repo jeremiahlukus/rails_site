@@ -18,16 +18,15 @@ namespace :posts do
       config = JSON.parse(raw_config, :symbolize_names => true)
       markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
-      post = Post.create(
-        name: post_json.name,
-        author: config[:author],
-        title: config[:title],
-        thumbnail_url: config[:thumbnail] ? "#{IMG_DIR}/#{config[:thumbnail]}" : nil,
-        date: DateTime.iso8601(config[:date]),
-        tags: config[:tags].join(','),
-        published: config[:published],
-        content: markdown.render(raw_content).html_safe
-      )
+      Post.find_or_create_by(name: post_json.name) do |post|
+        post.author = config[:author],
+        post.title = config[:title],
+        post.thumbnail_url = config[:thumbnail] ? "#{IMG_DIR}/#{config[:thumbnail]}" : nil,
+        post.date = DateTime.iso8601(config[:date]),
+        post.tags = config[:tags].join(','),
+        post.published = config[:published],
+        post.content = markdown.render(raw_content).html_safe
+      end
     end
   end
 
