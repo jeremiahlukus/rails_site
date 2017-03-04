@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  scope :published, -> { where(published: true).order(date: :desc) }
+
   def content
     super.html_safe
   end
