@@ -19,12 +19,12 @@ namespace :posts do
       markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
       Post.find_or_create_by(name: post_json.name) do |post|
-        post.author = config[:author],
-        post.title = config[:title],
-        post.thumbnail_url = config[:thumbnail] ? "#{IMG_DIR}/#{config[:thumbnail]}" : nil,
-        post.date = DateTime.iso8601(config[:date]),
-        post.tags = config[:tags].join(','),
-        post.published = config[:published],
+        post.author = config[:author]
+        post.title = config[:title]
+        post.thumbnail_url = config[:thumbnail] ? "#{IMG_DIR}/#{config[:thumbnail]}" : nil
+        post.date = DateTime.iso8601(config[:date])
+        post.tags = config[:tags].join(',')
+        post.published = config[:published]
         post.content = markdown.render(raw_content)
       end
     end
