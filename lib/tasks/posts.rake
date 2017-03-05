@@ -18,7 +18,7 @@ namespace :posts do
       config = JSON.parse(raw_config, :symbolize_names => true)
       markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
-      Post.find_or_create_by(name: post_json.name) do |post|
+      Post.find_or_initialize_by(name: post_json.name).tap do |post|
         post.author = config[:author]
         post.title = config[:title]
         post.thumbnail_url = config[:thumbnail] ? "#{IMG_DIR}/#{config[:thumbnail]}" : nil
@@ -26,6 +26,8 @@ namespace :posts do
         post.tags = config[:tags].join(',')
         post.published = config[:published]
         post.content = markdown.render(raw_content)
+
+        post.save
       end
     end
   end
