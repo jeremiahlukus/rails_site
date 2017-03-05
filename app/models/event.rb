@@ -1,4 +1,4 @@
-require 'google/sapis/calendar_v3'
+require 'google/apis/calendar_v3'
 require 'googleauth'
 require 'googleauth/stores/file_token_store'
 
@@ -64,7 +64,7 @@ class Event
 		puts "No upcoming events found" if response.items.empty?
 		event_array = Array.new
 		response.items.each do |event|
-			  event_array.push(Event.new(event))
+		  event_array.push(Event.new(event))
 		end
 		event_array
 	end
