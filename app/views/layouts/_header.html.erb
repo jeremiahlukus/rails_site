@@ -79,12 +79,12 @@
     margin-bottom:9%;
   }
 </style>
-<% if is_home %>
+<% if home? %>
   <div class="overlay-group">
     <div class="overlay-top"></div>
 <% end %>
 
-<%= content_tag :header, class: "top-page-header #{ 'home-page-header' if is_home }" do %>
+<%= content_tag :header, class: "top-page-header #{ 'home-page-header' if home? }" do %>
   <div class="overlay-group mobile-top-nav-area">
   <div class="overlay-top"></div>
   <div class="overlay-bottom mobile-top-nav">
@@ -103,7 +103,7 @@
     </p>
   </div>
 </div>
-  <div class="<%= "overlay-bottom" if is_home %> wrapper clearfix">
+  <div class="<%= "overlay-bottom" if home? %> wrapper clearfix">
     <div class="navigation-area">
       <ul class="navigation">
         <% nav_menu_items.each do |item| %>
@@ -126,7 +126,7 @@
       <button class="btn"><i class="fa fa-bars"></i></button>
     </div>
 
-    <% if is_home %>
+    <% if home? %>
       <hgroup class="pitch-group" style="margin-top: 12%;">
         <h1>PantherHackers</h1>
         <h2 style="text-transform:capitalize;">Simple Solutions for Complex Problems</h2>
@@ -149,7 +149,7 @@
     <% end %> <!-- END OF IF STATEMENT -->
   </div>
 
-  <% if is_home %>
+  <% if home? %>
     </div>
   <% end %>
 <% end %> <!-- END OF HEADER -->

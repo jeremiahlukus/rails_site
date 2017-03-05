@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def is_home
+  def home?
     current_page?(home_url)
   end
 

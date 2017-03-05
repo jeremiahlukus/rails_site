@@ -32,7 +32,7 @@
     <%= javascript_include_tag 'collapse.js' %>
     <%= javascript_include_tag 'app.js' %>
 
-		<% if is_home %>
+		<% if home? %>
 			<script>
 				document.querySelector('header').style.height = window.innerHeight + "px";
 
