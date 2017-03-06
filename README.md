@@ -6,7 +6,7 @@
 - Install Docker from [Docker's website](https://www.docker.com/products/docker).
 - Clone this repo from your terminal with `git clone https://github.com/PantherHackers/rails_site.git`.
 - Go to project (`cd rails_site`).
-- Run `docker-compose run bundle exec rails rake db:create db:migrate` and wait for the containers to build.
+- Run `docker-compose run rails bundle exec rake db:create db:migrate` and wait for the containers to build.
 - Copy `.env.example` into `.env`. `cp .env.example .env`.
 - Fill in the appropriate values in `.env` if you will be using any of the resources (e.g. the Github API).
 - If you want to populate the blog posts:
