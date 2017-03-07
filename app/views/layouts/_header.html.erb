@@ -96,10 +96,11 @@
 
     <p class="text-small text-center">Stay in touch</p>
     <p class="social-media">
-      <a href="https://www.facebook.com/PantherHackers"><i class="fa fa-facebook"></i></a>
-      <a href="https://twitter.com/PantherHackers"><i class="fa fa-twitter"></i></a>
-      <a href="https://instagram.com/pantherhackers/"><i class="fa fa-instagram"></i></a>
-      <a href="mailto:hello@pantherhackers.com"><i class="fa fa-envelope-o"></i></a>
+      <% social_menu_items.each do |item| %>
+        <%= link_to item[:url] do %>
+          <%= content_tag(:i, '', class: "fa #{item[:icon]}") %>
+        <% end %>
+      <% end %>
     </p>
   </div>
 </div>
