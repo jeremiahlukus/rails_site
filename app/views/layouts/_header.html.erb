@@ -116,10 +116,13 @@
 
     <div class="social-media-area">
       <ul>
-        <li><a href="https://www.facebook.com/PantherHackers"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="https://twitter.com/PantherHackers"><i class="fa fa-twitter"></i></a></li>
-      <li><a href="https://instagram.com/pantherhackers/"><i class="fa fa-instagram"></i></a></li>
-      <li><a href="mailto:hello@pantherhackers.com"><i class="fa fa-envelope-o"></i></a></li>
+        <% social_menu_items.each do |item| %>
+          <li>
+            <%= link_to item[:url] do %>
+              <%= content_tag(:i, '', class: "fa #{item[:icon]}") %>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
     <div class="mobile-hamburger-area">
