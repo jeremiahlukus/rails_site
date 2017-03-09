@@ -13,7 +13,6 @@ class Event
 	end
 
   def self.pull_calendar_data
-
   	#Establish base uri for Google Calendar API
 	  uri = URI('https://www.googleapis.com/calendar/v3/calendars/calendarId/events')
 
