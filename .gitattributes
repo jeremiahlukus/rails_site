@@ -1,0 +1,14 @@
+# All files to keep Linux style line ending
+* text eol=lf
+
+# Docker files to keep default text setting
+Dockerfile text=auto
+docker-compose.yml text=auto
+.dockerignore text=auto
+
+# .gitignore to default to OS line ending
+.gitignore text=auto
+
+# Files to keep binary format
+*.png binary
+*.jpg binary
