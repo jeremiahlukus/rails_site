@@ -31,9 +31,6 @@ gem 'redcarpet', '~> 3.4.0'
 # Cronjobs
 gem 'whenever', '~> 0.9.7'
 
-# Google API Client
-gem 'google-api-client'
-
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
