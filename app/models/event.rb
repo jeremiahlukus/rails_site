@@ -1,3 +1,6 @@
+require 'net/http'
+require 'json'
+
 class Event
 
   attr_reader :name, :start_datetime, :end_datetime, :description, :location, :link, :thumbnail
