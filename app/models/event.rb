@@ -13,22 +13,17 @@ class Event
 	end
 
   def self.pull_calendar_data
-  	#Establish base uri for Google Calendar API
-	  uri = URI('https://www.googleapis.com/calendar/v3/calendars/calendarId/events')
 
-	  #Create dynamic parameters for the API call
-	  #Check Google Calendar.List API Documentation for more params
-   	  params = {:key => ENV['GOOGLE_API_KEY'], 
-   	  			  # :maxResults => 1,
-				  :calendarId => 'PantherHackers@gmail.com', 
-				  :timeMin => (Time.now - 1.month).iso8601, 
-				  :timeMax => (Time.now + 1.month).iso8601}
+    #Create dynamic parameters for the API call
+    #See Google Calendar.List API Documentation for more parameters
+      params = { query: { key: ENV['GOOGLE_API_KEY'], 
+                 calendarId: 'PantherHackers@gmail.com', 
+                 timeMin: (Time.now - 1.month).iso8601, 
+                 timeMax: (Time.now + 1.month).iso8601 }
+        }
 
-		#Combine params and URI
-	  uri.query = URI.encode_www_form(params)
 
-		#Make the HTTP request
-	  response = JSON.parse(Net::HTTP.get(uri))
+    response = HTTParty.get('https://www.googleapis.com/calendar/v3/calendars/calendarId/events', params)
 
     event_array = response['items'].map { |event| 
     		 				if event['status'] != "cancelled"

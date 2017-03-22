@@ -31,6 +31,9 @@ gem 'redcarpet', '~> 3.4.0'
 # Cronjobs
 gem 'whenever', '~> 0.9.7'
 
+# HTTParty
+gem 'httparty'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
