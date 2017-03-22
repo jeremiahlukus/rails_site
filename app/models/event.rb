@@ -1,15 +1,15 @@
 class Event
 
-  attr_reader :name, :start_datetime, :end_datetime, :description, :location, :link, :thumbnail
+  attr_reader :name, :start, :end, :description, :location, :link, :thumbnail
 
-	def initialize(event_json)
-	  @name = event_json['summary']
-	  @start_datetime = event_json['start']
-	  @end_datetime = event_json['end']
-	  @location = event_json['location']
-	  @description = event_json['description']
-	  @link = (event_json['description'].to_s).split.first
-	  @thumbnail = (event_json['description'].to_s).split.second
+	def initialize(sum, start_dt, end_dt, loc, desc, link, thumb)
+	  @name = sum
+	  @start = start_dt
+	  @end = end_dt
+	  @location = loc
+	  @description = desc
+	  @link = link
+	  @thumbnail = thumb
 	end
 
   def self.pull_calendar_data
@@ -29,11 +29,31 @@ class Event
 
 		#Make the HTTP request
 	  response = JSON.parse(Net::HTTP.get(uri))
-	  event_array = Array.new
-	  response['items'].each do |event|
-	  	puts event
-	    event_array.push(Event.new(event))
-	  end
+
+    event_array = response['items'].map { |event| 
+    		 				if event['status'] != "cancelled"
+    		 					begin
+    								#Continue if date is in dateTime format
+      		 					Event.new(event['summary'], 
+      		 					DateTime.iso8601(event.dig('start','dateTime')), 
+      		 					DateTime.iso8601(event.dig('end','dateTime')), 
+      		 					event['location'], 
+      		 					event['description'], 
+      		 					event['description'].to_s.split.first, 
+      		 					event['description'].to_s.split.second)
+      		 				rescue
+      		 					#If not, then get dateTime
+      		 					#from date yyyy-mm-dd format
+      		 					Event.new(event['summary'], 
+      		 					DateTime.iso8601(event.dig('start', 'date')), 
+      		 					DateTime.iso8601(event.dig('end', 'date')), 
+      		 					event['location'], 
+      		 					event['description'], 
+      		 					event['description'].to_s.split.first, 
+      		 					event['description'].to_s.split.second)
+      		 				end
+    		 				end
+}
 	  event_array
 	end
 end
