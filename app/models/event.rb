@@ -2,15 +2,15 @@ class Event
 
   attr_reader :name, :start, :end, :description, :location, :link, :thumbnail
 
-	def initialize(sum, start_dt, end_dt, loc, desc, link, thumb)
-	  @name = sum
-	  @start = start_dt
-	  @end = end_dt
-	  @location = loc
-	  @description = desc
-	  @link = link
-	  @thumbnail = thumb
-	end
+  def initialize(sum, start_dt, end_dt, loc, desc, link, thumb)
+    @name = sum
+    @start = start_dt
+    @end = end_dt
+    @location = loc
+    @description = desc
+    @link = link
+    @thumbnail = thumb
+  end
 
   def self.pull_calendar_data
     #Create dynamic parameters for the API call
@@ -24,33 +24,33 @@ class Event
     response = HTTParty.get('https://www.googleapis.com/calendar/v3/calendars/calendarId/events', params)
 
     event_array = response['items'].map { |event| 
-    		 				if event['status'] != "cancelled"
-    		 					begin
-    								#Continue if date is in dateTime format
-      		 					Event.new(event['summary'], 
-      		 					DateTime.iso8601(event.dig('start','dateTime')), 
-      		 					DateTime.iso8601(event.dig('end','dateTime')), 
-      		 					event['location'], 
-      		 					event['description'], 
-      		 					event['description'].to_s.split.first, 
-      		 					event['description'].to_s.split.second)
-      		 				rescue
-      		 					#If not, then get dateTime
-      		 					#from date yyyy-mm-dd format
-      		 					Event.new(event['summary'], 
-      		 					DateTime.iso8601(event.dig('start', 'date')), 
-      		 					DateTime.iso8601(event.dig('end', 'date')), 
-      		 					event['location'], 
-      		 					event['description'], 
-      		 					event['description'].to_s.split.first, 
-      		 					event['description'].to_s.split.second)
-      		 				end
+                 if event['status'] != "cancelled"
+                   begin
+                    #Continue if date is in dateTime format
+                     Event.new(event['summary'], 
+                     DateTime.iso8601(event.dig('start','dateTime')), 
+                     DateTime.iso8601(event.dig('end','dateTime')), 
+                     event['location'], 
+                     event['description'], 
+                     event['description'].to_s.split.first, 
+                     event['description'].to_s.split.second)
+                   rescue
+                     #If not, then get dateTime
+                     #from date yyyy-mm-dd format
+                     Event.new(event['summary'], 
+                     DateTime.iso8601(event.dig('start', 'date')), 
+                     DateTime.iso8601(event.dig('end', 'date')), 
+                     event['location'], 
+                     event['description'], 
+                     event['description'].to_s.split.first, 
+                     event['description'].to_s.split.second)
+                   end
                 end
 }
-	  event_array
-	end
+    event_array
+  end
 end
-	
+  
 
 
 
