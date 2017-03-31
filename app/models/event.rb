@@ -12,7 +12,7 @@ class Event
     @thumbnail = thumb
   end
 
-  def self.pull_calendar_data
+  def self.all
     #Create dynamic parameters for the API call
     #See Google Calendar.List API Documentation for more parameters
     params = { query: { key: ENV['GOOGLE_API_KEY'], 
@@ -23,8 +23,7 @@ class Event
 
     response = HTTParty.get('https://www.googleapis.com/calendar/v3/calendars/calendarId/events', params)
 
-    event_array = response['items'].map { |event| 
-                 if event['status'] != "cancelled"
+    response['items'].reject{|item| item['status'] == "cancelled"}.map{ |event| 
                    begin
                     #Continue if date is in dateTime format
                      Event.new(event['summary'], 
@@ -45,9 +44,7 @@ class Event
                      event['description'].to_s.split.first, 
                      event['description'].to_s.split.second)
                    end
-                end
-}
-    event_array
+    }
   end
 end
   
