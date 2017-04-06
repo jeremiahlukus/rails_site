@@ -1,0 +1,30 @@
+<div class="overlay-group">
+  <div class="overlay-top"></div>
+  <hgroup class="pitch-group" style="margin-top: 12%;">
+    <div id="tile-top-right">
+      <h2 style="text-transform:capitalize;">Simple Solutions for Complex Problems</h2>
+    </div>
+    <div id="tile-top-left">
+      <h2>There will be a video here at some point!</h2>
+    </div>
+    <div id="tile-bottom-right">
+      <h2>Something about Slack! (Hopefully)</h2>
+    </div>
+    <div id="tile-bottom-left">
+      <%= form_for(@member, html: { class: 'subscribe-form' }) do |f| %>
+        <label>Sign up for news</label>
+        <div class="subscribe-fields">
+          <%= f.text_field :first_name, placeholder: 'Steve', class: 'name-field' %>
+          <hr>
+          <%= f.text_field :last_name, placeholder: 'Jobs', class: 'name-field' %>
+          <hr>
+          <%= f.email_field :email, placeholder: 'sjobs2@student.gsu.edu', class: 'email-field' %>
+          <%= f.submit 'Subscribe'.upcase, class: 'submit-button' %>
+        </div>
+        <%= content_tag :span, class: "message #{notice ? 'success' : 'error'}" do %>
+          <%= notice || error %>
+        <% end %> <!-- END OF CONTENT -->
+      <% end %> <!-- END OF FORM -->
+    </div>
+  </hgroup>
+</div>
