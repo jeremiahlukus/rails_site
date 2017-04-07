@@ -1,16 +1,16 @@
-<div class="overlay-group">
+<div class="overlay-group container-fluid" style="min-height: 740px">
   <div class="overlay-top"></div>
-  <hgroup class="pitch-group" style="margin-top: 12%;">
-    <div id="tile-top-right">
+  <div style="position: absolute; top: 0px; height: 100%">
+    <div class="tile" id="tile-top-right">
       <h2 style="text-transform:capitalize;">Simple Solutions for Complex Problems</h2>
     </div>
-    <div id="tile-top-left">
+    <div class="tile" id="tile-top-left">
       <h2>There will be a video here at some point!</h2>
     </div>
-    <div id="tile-bottom-right">
+    <div class="tile" id="tile-bottom-right">
       <h2>Something about Slack! (Hopefully)</h2>
     </div>
-    <div id="tile-bottom-left">
+    <div class="tile" id="tile-bottom-left">
       <%= form_for(@member, html: { class: 'subscribe-form' }) do |f| %>
         <label>Sign up for news</label>
         <div class="subscribe-fields">
@@ -26,5 +26,5 @@
         <% end %> <!-- END OF CONTENT -->
       <% end %> <!-- END OF FORM -->
     </div>
-  </hgroup>
+  </div>
 </div>

@@ -12,7 +12,7 @@ ENV BUNDLE_GEMFILE=$APP/Gemfile \
     BUNDLE_JOBS=2 \
     BUNDLE_PATH=/bundle
 
-COPY . $APP
+ADD . $APP
 
 RUN bundle install --without development test
 RUN bundle exec rake assets:precompile
