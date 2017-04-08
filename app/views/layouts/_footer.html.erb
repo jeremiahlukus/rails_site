@@ -3,10 +3,11 @@
     <%= image_tag('logo_oneline_white.png', class: 'logo-small') %>
     <p>Copyright &copy; <%= Date.today.year %> PantherHackers @ GSU</p>
     <p>
-      <a href="https://www.facebook.com/PantherHackers" class="footer-social-icon"><i class="fa fa-facebook"></i></a> &nbsp;
-      <a href="https://twitter.com/PantherHackers" class="footer-social-icon"><i class="fa fa-twitter"></i></a> &nbsp;
-      <a href="https://instagram.com/pantherhackers/" class="footer-social-icon"><i class="fa fa-instagram"></i></a>&nbsp;
-      <a href="mailto:hello@pantherhackers.com" class="footer-social-icon"><i class="fa fa-envelope-o"></i></a>
+      <% social_menu_items.each do |item| %>
+        <%= link_to item[:url], class: 'footer-social-icon' do %>
+          <%= content_tag(:i, '', class: "fa #{item[:icon]}") %>
+        <% end %>
+      <% end %>
     </p>
   </div>
 </footer>

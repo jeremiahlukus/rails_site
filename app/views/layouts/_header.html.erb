@@ -100,7 +100,8 @@
     </p>
   </div>
 </div>
-  <div class="wrapper clearfix">
+  <div class="<%= "overlay-bottom" if home? %> wrapper clearfix">
+    <%= link_to image_tag("logo_oneline.png", class: 'logo'), home_url, class: 'logo-area' %>
     <div class="navigation-area">
       <ul class="navigation">
         <% nav_menu_items.each do |item| %>
@@ -108,9 +109,6 @@
         <% end %>
       </ul>
     </div>
-
-    <%= link_to image_tag("logo_oneline.png", class: 'logo'), home_url, class: 'logo-area' %>
-
     <div class="social-media-area">
       <ul>
         <% social_menu_items.each do |item| %>
@@ -125,6 +123,5 @@
     <div class="mobile-hamburger-area">
       <button class="btn"><i class="fa fa-bars"></i></button>
     </div>
-
   </div>
 <% end %> <!-- END OF HEADER -->

@@ -2,6 +2,7 @@
 ## Same site. RoR back-end
 
 ### Setup
+###### If you are using Windows 10 Home, see the alternate setup below.
 
 - Install Docker from [Docker's website](https://www.docker.com/products/docker).
 - Clone this repo from your terminal with `git clone https://github.com/PantherHackers/rails_site.git`.
@@ -16,6 +17,21 @@
 - Run `docker-compose up`.
 - Wait for the Docker images to start up.
 - Go to [localhost:3000](http://localhost:3000).
+
+### Setup for Windows 10 Home
+###### Due to Windows 10 Home not having the required technology for Docker for Windows, you will have to use the legacy Docker Toolbox installation instead.
+
+- Install [Docker Toolbox](https://docs.docker.com/toolbox/overview/).
+- Open the Docker Quickstart Terminal.
+- Get the Docker Machine's IP address using `docker-machine ip`. This will be the IP you will put in the address bar when you start the server.
+- Clone the repo from your terminal with `git clone https://github.com/PantherHackers/rails_site.git`.
+- Go into the project with `cd rails_site`.
+- Copy the contents of the `.env.example` file into a new file named `.env` with `cp .env.example .env`. This will be needed for the next step.
+- Run `docker-compose run rails bundle exec rake db:create db:migrate` and wait for the containers to build.
+- If you will be changing the `.env` file in order to use any of the resources mentioned in the regular setup above, follow the instructions listed there.
+- Start the server with `docker-compose up` and wait for the Docker images to start up.
+- Ideally, the server will boot up and start on its own, but this doesn't happen all the time. If it looks like the startup process has stopped, go to IP you got from `docker-machine ip` with your web browser. The server should then spin up and start serving the site.
+
 
 ### Need to know
 

@@ -5,9 +5,9 @@ module ApplicationHelper
 
   def nav_menu_items
     [
-      {title: 'About', url: about_url},
-      {title: 'Calendar', url: calendar_url},
-      {title: 'Blog', url: blog_url}
+      {title: 'Blog', url: blog_url},
+      {title: 'Events', url: calendar_url},
+      {title: 'About', url: about_url}
     ]
   end
 
