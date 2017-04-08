@@ -12,12 +12,17 @@ ENV BUNDLE_GEMFILE=$APP/Gemfile \
     BUNDLE_JOBS=2 \
     BUNDLE_PATH=/bundle
 
-ADD . $APP
+# Copies Gemfile and Gemfile.lock
+COPY Gemfile* $APP/
 
 RUN bundle install --without development test
+
+COPY . $APP
+
+# Precompiling assets
 RUN bundle exec rake assets:precompile
 
-# Whenever turns schedule.rb into a crontab
+# Updating the crontab
 RUN bundle exec whenever --update-crontab
 
 EXPOSE 3000
