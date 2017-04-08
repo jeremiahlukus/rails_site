@@ -1,18 +1,40 @@
 <div class="overlay-group container-fluid" style="min-height: 740px">
-  <div class="overlay-top"></div>
-  <div style="position: absolute; top: 0px; height: 100%">
-    <div class="tile" id="tile-top-right">
-      <h2 style="text-transform:capitalize;">Simple Solutions for Complex Problems</h2>
+  <style type='text/css'>
+    #tile-top-right{
+      background-image: url('/assets/ph_sticker.jpg');
+    }
+    #tile-top-left{
+      background-color: rgb(50,50,50);
+    }
+    #tile-bottom-right{
+      background-image: url('/assets/harsha_m1.jpg');
+    }
+    #tile-bottom-left{
+      background-image: url('/assets/kara_mcm.jpg');
+    }
+    .btn{
+      border: none;
+      color: white;
+    }
+  </style>
+  <div style="position: absolute; top: 0px; left: 0px; height: 100%">
+    <div class="tile col-lg-6 col-ms-6 col-sm-12 col-xs-12" id="tile-top-left">
+      <div class="tile-wrapper">
+        <h2>There will be a video here at some point!</h2>
+      </div>
     </div>
-    <div class="tile" id="tile-top-left">
-      <h2>There will be a video here at some point!</h2>
+    <div class="tile col-lg-6 col-ms-6 col-sm-12 col-xs-12" id="tile-top-right">
+      <div class="tile-wrapper">
+        <h2 style="text-transform:capitalize;"><strong>Simple Solutions for Complex Problems</strong></h2>
+        <%= link_to  about_path, style: "background-color: rgb(92,143,118); border-radius: 3px;", class: "btn btn-lg" do %>
+          <strong>About Us</strong>
+        <% end %>
+      </div>
     </div>
-    <div class="tile" id="tile-bottom-right">
-      <h2>Something about Slack! (Hopefully)</h2>
-    </div>
-    <div class="tile" id="tile-bottom-left">
+    <div class="tile col-lg-6 col-ms-6 col-sm-12 col-xs-12" id="tile-bottom-left">
       <%= form_for(@member, html: { class: 'subscribe-form' }) do |f| %>
-        <label>Sign up for news</label>
+        <h2><strong>Stay in the know!</strong></h2>
+        <h3 style="margin-top: 0px;"><strong>Sign up for our newsletter.</strong></h3>
         <div class="subscribe-fields">
           <%= f.text_field :first_name, placeholder: 'Steve', class: 'name-field' %>
           <hr>
@@ -25,6 +47,17 @@
           <%= notice || error %>
         <% end %> <!-- END OF CONTENT -->
       <% end %> <!-- END OF FORM -->
+    </div>
+    <div class="tile col-lg-6 col-ms-6 col-sm-12 col-xs-12" id="tile-bottom-right">
+      <div class="tile-wrapper">
+        <h2><strong>Join our conversations!</strong></h2>
+        <p>
+          <strong>Engage with our vibrant community of over 400 members, and accelerate your leaning through our Interest Groups.</strong>
+        </p>
+        <%= link_to navigate_slack_pages_path, style: 'background-color: rgb(234,84,131); border-radius: 3px;', class: 'btn btn-lg' do %>
+          <strong>Join Slack!</strong>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  include PagesHelper
   # GET /
   def home
     @member = Member.new
