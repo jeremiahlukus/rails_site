@@ -101,25 +101,28 @@
 *** HOME PAGE
 *******/
 
-@media(max-width:480px){
+@media(max-width:420px){
 	.pitch-group{
 		margin-top:30%;
 		margin-bottom:30%;
-        margin-left: auto;
-        margin-right: auto;
+        margin-right:10%;
+
 	}
 
 	.pitch-group h1{
 		font-size:2.5em;
-        margin-left: auto;
-        margin-right: auto;
-        
-        
+
+
+
 	}
 	.pitch-group h2{
 		font-size:1.5em;
-        margin-left: auto;
-        margin-right: auto;
+
+	}
+
+	.subscribe-form{
+		margin-left: -5%;
+
 	}
 }
 
