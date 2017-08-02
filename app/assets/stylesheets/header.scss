@@ -1,0 +1,79 @@
+@keyframes popup {
+    from {top:-21px;}
+    to {top:0px;}
+  }
+  .subscribe-form {
+    display:inline-flex;
+    flex-flow:column nowrap;
+    width:350px;
+  }
+  .subscribe-form label {
+    color:white;
+    font-size:18pt;
+    font-weight:normal;
+  }
+  .subscribe-form .subscribe-fields {
+    background:#eee;
+    display:inline-flex;
+    flex-flow:column nowrap;
+    padding:5px;
+    border-radius:5px;
+    z-index:1;
+  }
+  .subscribe-form .name-field {
+    border:none;
+    outline:none;
+    background:none;
+    padding:10px 5px;
+    margin:0 2.5%;
+  }
+  .subscribe-form hr {
+    margin:5px auto;
+    width:97%;
+    border-top:1px solid #bbb;
+    display:block;
+  }
+  .subscribe-form .email-field {
+    border:none;
+    outline:none;
+    background:none;
+    padding:10px 5px;
+    margin:0 2.5%;
+  }
+  .submit-button {
+    border:none;
+    outline:none;
+    border-radius:3px;
+    padding:7px 10px;
+    margin-top:5px;
+    background-color:#4c94dc;
+    color:white;
+    transition:.3s all ease-in-out;
+  }
+  .submit-button:hover {
+    background-color:#6cb4fc;
+  }
+  .button-x2 {
+    padding:12px 15px;
+    font-size: 2.5rem;
+  }
+  .subscribe-form .message {
+    display:inline-block;
+    position:relative;
+    margin-top:-5px;
+    padding-top:5px;
+    z-index:0;
+    border-radius:0 0 5px 5px;
+    animation: popup 0.3s cubic-bezier(.17,.67,.69,1.33) forwards;
+  }
+  .subscribe-form .message.success {
+    color:rgb(0,123,0);
+    background-color:rgba(100,233,100,0.8);
+  }
+  .subscribe-form .message.error {
+    color:rgb(180,26,0);
+    background-color:rgba(255,120,110,0.8);
+  }
+  .main-event {
+    margin-bottom:9%;
+  }
