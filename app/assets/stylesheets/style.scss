@@ -686,6 +686,27 @@ img{
 	font-size:1.4em;
 }
 
+.tile {
+	display: flex;
+	margin: 0px;
+	padding: 5px;
+	height: 50%;
+	color: white;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	background-position: center center;
+	text-align: center;
+}
+
+.tile-wrapper{
+	display: block;
+	max-width: 80%;
+	font-size: 20px;
+	text-shadow: 0px 0px 4px grey;
+	margin-bottom: 4%;
+}
+
 .footer-social-icon {
 	margin-right: 20px;
 }

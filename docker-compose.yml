@@ -3,7 +3,7 @@ services:
   rails:
     image: ph-rails
     build: .
-    command: /bin/bash ./entrypoint.sh
+    command: ./entrypoint.sh
     env_file: .env
     volumes:
       - .:/app
