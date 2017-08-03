@@ -1,0 +1,12 @@
+<% for event in @events %>
+  <div>
+    <%= content_tag :p, event.name %>
+    <%= content_tag :p, event.start %>
+    <%= content_tag :p, event.end %>
+    <%= content_tag :p, event.location %>
+    <%= content_tag :p, event.description %>
+    <%= content_tag :p, event.link %>
+    <%= content_tag :p, event.thumbnail %>
+
+  </div>
+<% end %>

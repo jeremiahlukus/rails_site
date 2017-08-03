@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     get '/' => :home, as: :home
     get '/about' => :about, as: :about
     get '/calendar' => :calendar, as: :calendar
+    get '/events' => :events, as: :events
   end
 end

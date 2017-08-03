@@ -17,8 +17,8 @@ class Event
     #See Google Calendar.List API Documentation for more parameters
     params = { query: { key: ENV['GOOGLE_API_KEY'], 
                calendarId: 'PantherHackers@gmail.com', 
-               timeMin: (Time.now - 1.month).iso8601, 
-               timeMax: (Time.now + 1.month).iso8601 }
+               timeMin: (Time.now - 5.month).iso8601, 
+               timeMax: (Time.now + 5.month).iso8601 }
     }
 
     response = HTTParty.get('https://www.googleapis.com/calendar/v3/calendars/calendarId/events', params)
