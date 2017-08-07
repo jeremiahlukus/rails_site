@@ -16,9 +16,9 @@ class Event
     #Create dynamic parameters for the API call
     #See Google Calendar.List API Documentation for more parameters
     params = { query: { key: ENV['GOOGLE_API_KEY'], 
-               calendarId: 'PantherHackers@gmail.com', 
-               timeMin: (Time.now - 5.month).iso8601, 
-               timeMax: (Time.now + 5.month).iso8601 }
+               calendarId: 'briancabigon@gmail.com', 
+               timeMin: (Time.now - 1.month).iso8601, 
+               timeMax: (Time.now + 1.month).iso8601 }
     }
 
     response = HTTParty.get('https://www.googleapis.com/calendar/v3/calendars/calendarId/events', params)
@@ -30,7 +30,7 @@ class Event
                      DateTime.iso8601(event.dig('start','dateTime')), 
                      DateTime.iso8601(event.dig('end','dateTime')), 
                      event['location'], 
-                     event['description'], 
+                     event['description'].to_s.split[2..-1].join(' '), 
                      event['description'].to_s.split.first, 
                      event['description'].to_s.split.second)
                    rescue
@@ -40,7 +40,7 @@ class Event
                      DateTime.iso8601(event.dig('start', 'date')), 
                      DateTime.iso8601(event.dig('end', 'date')), 
                      event['location'], 
-                     event['description'], 
+                     event['description'].to_s.split[2..-1].join(' '), 
                      event['description'].to_s.split.first, 
                      event['description'].to_s.split.second)
                    end
