@@ -132,11 +132,11 @@
 
     <% if home? %>
       <hgroup class="pitch-group" style="margin-top: 12%;">
-        <h1>PantherHackers</h1>
-        <h2 style="text-transform:capitalize;">Simple Solutions for Complex Problems</h2>
+        <h1>Meeting [0]</h1>
+        <h2 style="text-transform:capitalize;">Come Find Out Who We Are</h2>
       </hgroup>
 
-      <%= form_for(@member, html: { class: 'subscribe-form' }) do |f| %>
+      <!--<%= form_for(@member, html: { class: 'subscribe-form' }) do |f| %>
         <label>Sign up for news</label>
         <div class="subscribe-fields">
           <%= f.text_field :first_name, placeholder: 'Steve', class: 'name-field' %>
@@ -148,8 +148,8 @@
         </div>
         <%= content_tag :span, class: "message #{notice ? 'success' : 'error'}" do %>
           <%= notice || error %>
-        <% end %> <!-- END OF CONTENT -->
-      <% end %> <!-- END OF FORM -->
+        <% end %> END OF CONTENT 
+      <% end %> END OF FORM -->
     <% end %> <!-- END OF IF STATEMENT -->
   </div>
 
