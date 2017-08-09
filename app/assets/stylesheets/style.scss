@@ -81,7 +81,7 @@ img{
 }
 
 .home-page-header{
-	background-image: image-url("Meeting_0_Splash_Pic.JPG");
+	background-image: image-url("meeting_0_front_page.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -705,6 +705,7 @@ img{
 	transition: .3s all ease-in-out;
 
 	&:hover {
-		background-color: #333;
+		background: rgba(68, 4, 0, .5);
+		opacity: 0.5;
 	}
 }
