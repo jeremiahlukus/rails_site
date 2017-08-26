@@ -81,7 +81,7 @@ img{
 }
 
 .home-page-header{
-	background-image: image-url("header_img.jpg");
+	background-image: image-url("meeting_0_front_splash.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -302,7 +302,8 @@ img{
 }
 
 .pitch-group h1{
-	font-size:3.5em;
+	font-size:5.5em;
+	margin-top:25%;
 	font-family: $title-font, sans-serif;
 	font-weight: 700;
 	text-shadow:0 0 5px #777;
@@ -688,4 +689,22 @@ img{
 
 .footer-social-icon {
 	margin-right: 20px;
+}
+
+.event-spotlight-button {
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	width: 15em;
+	margin: 3em auto;
+	color:#F8F8FA;
+	font-size: 1.5em;
+	
+	transition: .3s all ease-in-out;
+
+	&:hover {
+		background: rgba(128, 128, 128, .5);
+	}
 }
