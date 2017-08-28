@@ -27,3 +27,6 @@
 
 # Ignore bundle
 /vendor/bundle/*
+
+# Ignore mac stuff
+.DS_Store
