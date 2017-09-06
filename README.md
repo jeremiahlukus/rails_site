@@ -32,6 +32,16 @@
 - Start the server with `docker-compose up` and wait for the Docker images to start up.
 - Ideally, the server will boot up and start on its own, but this doesn't happen all the time. If it looks like the startup process has stopped, go to IP you got from `docker-machine ip` with your web browser. The server should then spin up and start serving the site.
 
+### Setup for mac
+- Get [homebrew](https://brew.sh/)
+- in your terminal paste in (`brew install mysql`)
+- Install Docker from [Docker's website](https://www.docker.com/products/docker) and make an account
+- Clone this repo from your terminal with (`git clone https://github.com/PantherHackers/rails_site.git`)
+- Go to project (`cd rails_site`).
+- Run(`docker-compose build`)
+- Run (`docker-compose run rails bundle exec rake db:create db:migrate`)
+- Run (`docker-compose up`)
+
 
 ### Need to know
 
