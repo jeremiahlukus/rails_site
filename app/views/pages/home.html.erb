@@ -1,20 +1,6 @@
 <div class="overlay-group container-fluid" style="min-height: 739px">
   <style type='text/css'>
-    #tile-top-right{
-      background-image: url('/assets/ph_sticker.jpg');
-      align-items: flex-end;
-    }
-    #tile-top-left{
-      background-color: rgb(50,50,50);
-      overflow: hidden;
-      align-items: baseline;;
-    }
-    #tile-bottom-right{
-      background-image: url('/assets/harsha_m1.jpg');
-    }
-    #tile-bottom-left{
-      background-image: url('/assets/kara_mcm.jpg');
-    }
+    
     .btn{
       border: none;
       color: white;
@@ -54,7 +40,7 @@
     </div>
     <div class="tile col-lg-6 col-ms-6 col-sm-12 col-xs-12" id="tile-bottom-right">
       <div class="tile-wrapper">
-        <image src='/assets/slack_logo.png' height='25%' width='25%'></image></image>
+        <%= image_tag('slack_logo.png', id: 'slack-logo-tile') %>
         <h2><strong>Join our conversations!</strong></h2>
         <p>
           <strong>Engage with our vibrant community of over 400 members, and accelerate your leaning through our Interest Groups.</strong>
