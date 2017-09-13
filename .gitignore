@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-#/.bundle
+*/bundle
 
 # Ignore env variables
 .env
@@ -24,3 +24,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Mac Stuff
+.DS_Store
