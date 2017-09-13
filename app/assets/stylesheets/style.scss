@@ -716,3 +716,26 @@ img{
 	color: #444;
 }
 
+#tile-top-right{
+      background-image: image-url('ph_sticker.jpg');
+      align-items: flex-end;
+    }
+
+#tile-top-left{
+  background-color: rgb(50,50,50);
+  overflow: hidden;
+  align-items: baseline;;
+}
+
+#tile-bottom-right{
+  background-image: image-url('harsha_m1.jpg');
+}
+
+#tile-bottom-left{
+  background-image: image-url('kara_mcm.jpg');
+}
+
+#slack-logo-tile {
+	height: 25%;
+	width: 25%;
+}
