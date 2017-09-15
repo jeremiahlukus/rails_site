@@ -687,24 +687,55 @@ img{
 	font-size:1.4em;
 }
 
+.tile {
+	display: flex;
+	margin: 0px;
+	padding: 0 0 0 0 ;
+	height: 50%;
+	color: white;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	background-position: center center;
+	text-align: center;
+}
+
+.tile-wrapper{
+	display: block;
+	max-width: 80%;
+	font-size: 20px;
+	text-shadow: 0px 0px 4px grey;
+	margin-bottom: 4%;
+}
+
 .footer-social-icon {
 	margin-right: 20px;
 }
 
-.event-spotlight-button {
-	border-radius: 15px;
-	border-style: solid;
-	border-width: 3px;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	max-width: 15em;
-	margin: 3em auto;
-	color:#F8F8FA;
-	font-size: 1.5em;
-	
-	transition: .3s all ease-in-out;
+.subscribe-fields {
+	color: #444;
+}
 
-	&:hover {
-		background: rgba(128, 128, 128, .5);
-	}
+#tile-top-right{
+      background-image: image-url('ph_sticker.jpg');
+      align-items: flex-end;
+    }
+
+#tile-top-left{
+  background-color: rgb(50,50,50);
+  overflow: hidden;
+  align-items: baseline;;
+}
+
+#tile-bottom-right{
+  background-image: image-url('harsha_m1.jpg');
+}
+
+#tile-bottom-left{
+  background-image: image-url('kara_mcm.jpg');
+}
+
+#slack-logo-tile {
+	height: 25%;
+	width: 25%;
 }
