@@ -38,6 +38,7 @@ gem 'whenever', '~> 0.9.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "bourbon"
 
 group :development, :production do
   gem 'listen', '~> 3.0.5'

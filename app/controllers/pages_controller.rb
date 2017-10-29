@@ -8,6 +8,10 @@ class PagesController < ApplicationController
   def about
   end
 
+  def inerest_groups
+  end
+
+
   def calendar
   end
 end

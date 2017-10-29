@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   controller :pages do
     get '/' => :home, as: :home
     get '/about' => :about, as: :about
+    get '/interest_groups' => :interest_groups, as: :interest_groups
     get '/calendar' => :calendar, as: :calendar
   end
 end
